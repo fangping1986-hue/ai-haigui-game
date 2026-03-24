@@ -10,7 +10,7 @@ export function Home() {
   const hardCount = STORIES.filter((story) => story.difficulty === 'hard').length
 
   return (
-    <main className="min-h-[100dvh] bg-slate-900 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
+    <main className="min-h-[100dvh] pb-[max(1.5rem,env(safe-area-inset-bottom))]">
       <section className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         <header className="motion-safe:animate-message-in rounded-lg border border-slate-700 bg-slate-800/70 p-5 shadow-lg sm:p-6">
           <div className="flex flex-wrap items-center gap-2">

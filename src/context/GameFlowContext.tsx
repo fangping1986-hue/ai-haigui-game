@@ -67,7 +67,10 @@ function RouteTransition() {
 export function GameFlowRootLayout() {
   return (
     <GameFlowProvider>
-      <RouteTransition />
+      <div className="relative min-h-[100dvh]">
+        <div className="starfield" aria-hidden />
+        <RouteTransition />
+      </div>
     </GameFlowProvider>
   )
 }

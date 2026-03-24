@@ -3,7 +3,13 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-900 text-slate-100 antialiased;
+  @apply text-slate-100 antialiased;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(56, 189, 248, 0.14), transparent 60%),
+    radial-gradient(circle at 20% 15%, rgba(59, 130, 246, 0.2), transparent 36%),
+    radial-gradient(circle at 80% 10%, rgba(148, 163, 184, 0.14), transparent 30%),
+    linear-gradient(180deg, #020617 0%, #0b1025 55%, #020617 100%);
+  background-attachment: fixed;
   /* 刘海屏与底部手势条 */
   padding-left: env(safe-area-inset-left, 0);
   padding-right: env(safe-area-inset-right, 0);
@@ -12,6 +18,49 @@ body {
 
 #root {
   @apply min-h-screen min-h-[100dvh];
+}
+
+@keyframes starTwinkle {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.starfield,
+.starfield::before,
+.starfield::after {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.starfield {
+  z-index: -1;
+}
+
+.starfield::before,
+.starfield::after {
+  content: '';
+  animation: starTwinkle 6s ease-in-out infinite;
+}
+
+.starfield::before {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.85) 1.3px, transparent 1.8px);
+  background-size: 120px 120px;
+  background-position: 0 0;
+}
+
+.starfield::after {
+  background-image:
+    radial-gradient(circle, rgba(251, 191, 36, 0.55) 1.1px, transparent 1.6px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.68) 1px, transparent 1.5px);
+  background-size: 180px 180px, 95px 95px;
+  background-position: 40px 60px, 10px 20px;
+  animation-delay: 1.4s;
 }
 
 @layer utilities {
